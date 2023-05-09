@@ -2,12 +2,12 @@
 <html lang="en" >
 <head>
   <meta charset="UTF-8">
-  <title>Brandon Himpfen Tools</title>
+  <title>Brandon Himpfen Tools - Temperature Converter</title>
   <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.0.2/css/bootstrap.min.css'><link rel="stylesheet" href="./style.css">
 
 </head>
 <body>
-
+<!-- partial:index.partial.html -->
 <nav class="navbar navbar-expand-md navbar-dark bg-dark mb-4 p-3">
   <div class="container-fluid">
     <a class="navbar-brand" href="/">Brandon Himpfen <span class="title-description">Tools</span></a>
@@ -23,7 +23,7 @@
           <ul class="dropdown-menu">
             <li><a class="dropdown-item" href="/cat/">Cat Age Converter</a></li>
             <li><a class="dropdown-item" href="/dog/">Dog Age Converter</a></li>
-            <li><a class="dropdown-item" href="/temperature/">Temperature Converter</a></li>
+            <li><a class="dropdown-item active" href="/temperature/">Temperature Converter</a></li>
           </ul>
         </li>
       </ul>
@@ -31,10 +31,20 @@
   </div>
 </nav>
 <div class="container tool-container">
-
-</div>
-
-    <script src='https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.0.2/js/bootstrap.min.js'></script>
+  <h1>Temperature Converter</h1>
+    <p>Enter a temperature:</p>
+  <div class="input-group flex-nowrap mb-3">
+    <input type="text" id="temp" class="form-control" />
+    <select id="unit" class="form-select">
+      <option value="celsius">Celsius</option>
+      <option value="fahrenheit">Fahrenheit</option>
+    </select>
+    <button onclick="convertTemp()" class="btn btn-primary">Convert</button>
+  </div>
+    <p id="result"></p>
+  </div>
+<!-- partial -->
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.0.2/js/bootstrap.min.js'></script><script  src="./script.js"></script>
 
 </body>
 </html>
