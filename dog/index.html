@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>Brandon Himpfen Tools - Convert Dog&#39;s Age to Human Years</title>
+  <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.0.2/css/bootstrap.min.css'><link rel="stylesheet" href="./style.css">
+
+</head>
+<body>
+
+<nav class="navbar navbar-expand-md navbar-dark bg-dark mb-4 p-3">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="/">Brandon Himpfen <span class="title-description">Tools</span></a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarCollapse">
+      <ul class="navbar-nav me-auto mb-2 mb-md-0">
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Converters
+          </a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="/cat/">Cat Age Converter</a></li>
+            <li><a class="dropdown-item" href="/dog/">Dog Age Converter</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+<div class="container tool-container">
+ <h1>Dog Age Converter</h1>
+    <p>Enter your dog's age:</p>
+<div class="input-group flex-nowrap mb-3">
+    <input class="form-control" type="text" id="dogAge" />
+    <button onclick="convertDogAge()" class="btn btn-primary">Convert</button>
+</div>
+<p id="humanAge"></p>
+</div>
+
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.0.2/js/bootstrap.min.js'></script>
+  <script  src="./script.js"></script>
+
+</body>
+</html>
