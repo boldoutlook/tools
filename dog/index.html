@@ -61,6 +61,26 @@
 </div>
   <script src='https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js'></script>
   <script  src="./script.js"></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js'></script>
 
+    <!-- Open External Links in New Window -->
+    <script type="text/javascript">
+    // Add Ref to External Links
+    $(document).ready(function() {
+      var refValue = 'himpfen.com';
+      var externalLinks = $('a[href^="http"]:not([href*="' + window.location.hostname + '"])');
+
+      externalLinks.each(function() {
+        var originalHref = $(this).attr('href');
+        var separator = originalHref.includes('?') ? '&' : '?';
+        var modifiedHref = originalHref + separator + 'ref=' + encodeURIComponent(refValue);
+        $(this).attr('href', modifiedHref);
+      });
+    });
+    // Open External Links in New Window
+    $(document.links).filter(function() {
+      return this.hostname != window.location.hostname;
+    }).attr('target', '_blank');
+    </script>
 </body>
 </html>
