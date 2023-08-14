@@ -1,5 +1,18 @@
-.navbar-brand {
-  font-weight: 600;
+.navbar {
+  background: linear-gradient(45deg, #579ae9, #d52cfb);
+  background-size: cover;
+}
+@media (min-width: 992px) {
+  .navbar {
+    min-height: 100px;
+    font-size: 110%;
+  }
+  .navbar-brand {
+    font-weight: 600;
+  }
+  .post-header,.post-content {
+    margin: auto 5em;
+  }
 }
 .title-description {
   font-weight:400;
