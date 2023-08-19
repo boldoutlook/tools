@@ -79,9 +79,14 @@
       });
     });
     // Open External Links in New Window
-    $(document.links).filter(function() {
-      return this.hostname != window.location.hostname;
-    }).attr('target', '_blank');
+    document.querySelectorAll('a').forEach(function(link) {
+      const linkHostname = new URL(link.href).hostname;
+      const currentHostname = window.location.hostname;
+
+      if (linkHostname !== currentHostname && !linkHostname.endsWith('.himpfen.com') && linkHostname !== 'himpfen.com' && !link.href.startsWith('/') && !link.href.startsWith('#')) {
+        link.setAttribute('target', '_blank');
+      }
+    });
     </script>
 </body>
 </html>
