@@ -1,0 +1,44 @@
+.navbar {
+  background: linear-gradient(45deg, #579ae9, #d52cfb);
+  background-size: cover;
+}
+@media (min-width: 992px) {
+  .navbar {
+    min-height: 80px;
+    font-size: 115%;
+  }
+  .navbar-brand {
+    font-weight: 700;
+    font-size: 115%;
+  }
+}
+.title-description {
+  font-weight:400;
+  margin-left:-0.45em;
+}
+.tool-container {
+  margin-top: 2em;
+}
+
+input[type="number"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+.output-section {
+    margin-top: 20px;
+}
