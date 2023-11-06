@@ -1,0 +1,21 @@
+.navbar {
+  background: #23a7e1 linear-gradient(45deg, #0033a1, #23a7e1);
+  background-size: cover;
+}
+@media (min-width: 992px) {
+  .navbar {
+    min-height: 80px;
+    font-size: 115%;
+  }
+  .navbar-brand {
+    font-weight: 500;
+    font-size: 115%;
+  }
+}
+.title-description {
+  font-weight:400;
+  margin-left:-0.45em;
+}
+.tool-container {
+  margin-top: 2em;
+}
