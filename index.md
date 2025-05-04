@@ -108,7 +108,7 @@ layout: default
       <div class="card-header tool-card-header">Packing Tool</div>
       <div class="card-body tool-card-body">
         <p class="card-text">Plan and customize your packing list to ensure you’re ready for any adventure.</p>
-        <a href="/packing-tool/" class="btn btn-primary">Use This Tool</a>
+        <a href="/packing/" class="btn btn-primary">Use This Tool</a>
       </div>
     </div>
   </div>
