@@ -1,0 +1,30 @@
+---
+layout: default
+title: "Cat Age Converter"
+permalink: /cat/
+---
+
+<div class="container tool-container">
+  <h1>Cat Age Converter</h1>
+  <p>Enter your cat's age:</p>
+  <div class="input-group flex-nowrap mb-3">
+    <input class="form-control" type="text" id="catAge" placeholder="Enter cat's age in years"/>
+    <button onclick="convertCatAge()" class="btn btn-primary">Convert</button>
+  </div>
+  <p id="humanAge"></p>
+</div>
+
+<script>
+  function convertCatAge() {
+    const catAge = document.getElementById("catAge").value;
+    let humanAge;
+    
+    if (catAge >= 2) {
+      humanAge = 24 + (catAge - 2) * 4;
+    } else {
+      humanAge = catAge * 15; // For cats under 2 years
+    }
+
+    document.getElementById("humanAge").innerText = `Your cat's age in human years is approximately: ${humanAge}`;
+  }
+</script>

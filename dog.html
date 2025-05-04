@@ -1,0 +1,32 @@
+---
+layout: default
+title: "Dog Age Converter"
+permalink: /dog/
+---
+
+<div class="container tool-container">
+  <h1>Dog Age Converter</h1>
+  <p>Enter your dog's age:</p>
+
+  <div class="input-group flex-nowrap mb-3">
+    <input class="form-control" type="text" id="dogAge" placeholder="Enter dog's age in years"/>
+    <button onclick="convertDogAge()" class="btn btn-primary">Convert</button>
+  </div>
+
+  <p id="humanAge"></p>
+</div>
+
+<script>
+  function convertDogAge() {
+    const dogAge = document.getElementById("dogAge").value;
+    let humanAge;
+    
+    if (dogAge >= 2) {
+      humanAge = 24 + (dogAge - 2) * 5;
+    } else {
+      humanAge = dogAge * 15; // For dogs under 2 years
+    }
+
+    document.getElementById("humanAge").innerText = `Your dog's age in human years is approximately: ${humanAge}`;
+  }
+</script>

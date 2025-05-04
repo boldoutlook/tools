@@ -1,0 +1,77 @@
+---
+layout: default
+title: "HTML Ipsum Generator"
+permalink: /html-ipsum/
+---
+
+<div class="container tool-container">
+  <h1 class="mb-4">HTML Ipsum Generator</h1>
+
+  <form id="ipsumForm">
+    <div class="form-group">
+      <label for="htmlTag">Select HTML Tag:</label>
+      <select class="form-control" id="htmlTag">
+        <option value="p">Paragraph (p)</option>
+        <option value="h1">Heading 1 (h1)</option>
+        <option value="h2">Heading 2 (h2)</option>
+        <option value="h3">Heading 3 (h3)</option>
+        <option value="h4">Heading 4 (h4)</option>
+        <option value="h5">Heading 5 (h5)</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="numWords">Number of Words (if this is set, the number of sentences will be ignored):</label>
+      <input type="number" class="form-control" id="numWords" placeholder="Enter number of words" min="1">
+    </div>
+    <div class="form-group">
+      <label for="numSentences">Number of Sentences:</label>
+      <input type="number" class="form-control" id="numSentences" placeholder="Enter number of sentences" min="1">
+    </div>
+    <br />
+    <button type="button" class="btn btn-success" onclick="generateAndDisplayIpsum()">Show HTML Output</button>
+  </form>
+
+  <div class="form-group mt-4">
+    <label for="htmlOutput">Generated HTML Output:</label>
+    <textarea id="htmlOutput" class="form-control" rows="5" readonly></textarea>
+  </div>
+</div>
+
+<script>
+  function generateAndDisplayIpsum() {
+    const tag = document.getElementById("htmlTag").value;
+    const numWords = document.getElementById("numWords").value;
+    const numSentences = document.getElementById("numSentences").value;
+
+    let generatedHtml = "";
+    
+    if (numWords) {
+      generatedHtml = generateIpsum(numWords, "word", tag);
+    } else if (numSentences) {
+      generatedHtml = generateIpsum(numSentences, "sentence", tag);
+    }
+    
+    document.getElementById("htmlOutput").value = generatedHtml;
+  }
+
+  function generateIpsum(count, type, tag) {
+    const loremIpsum = {
+      word: ["lorem", "ipsum", "dolor", "sit", "amet", "consectetur", "adipiscing", "elit"],
+      sentence: ["Lorem ipsum dolor sit amet.", "Consectetur adipiscing elit.", "Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."]
+    };
+
+    let output = "";
+    
+    if (type === "word") {
+      for (let i = 0; i < count; i++) {
+        output += `<${tag}>${loremIpsum.word[i % loremIpsum.word.length]}</${tag}> `;
+      }
+    } else if (type === "sentence") {
+      for (let i = 0; i < count; i++) {
+        output += `<${tag}>${loremIpsum.sentence[i % loremIpsum.sentence.length]}</${tag}> `;
+      }
+    }
+
+    return output;
+  }
+</script>

@@ -1,0 +1,44 @@
+---
+layout: default
+title: "Blog Membership ARR Calculator"
+permalink: /blog-membership-arr/
+---
+
+<div class="container tool-container">
+  <h1>Blog Membership ARR Calculator</h1>
+
+  <div class="input-section">
+    <label for="monthly-members">Number of Monthly Members:</label>
+    <input type="number" id="monthly-members" placeholder="Enter number of monthly members">
+    
+    <label for="monthly-price">Monthly Subscription Price ($):</label>
+    <input type="number" id="monthly-price" placeholder="Enter monthly price">
+    
+    <label for="yearly-members">Number of Yearly Members:</label>
+    <input type="number" id="yearly-members" placeholder="Enter number of yearly members">
+    
+    <label for="yearly-price">Yearly Subscription Price ($):</label>
+    <input type="number" id="yearly-price" placeholder="Enter yearly price">
+  </div>
+
+  <div class="output-section">
+    <button onclick="calculateARR()">Calculate ARR</button>
+    <p id="result"></p>
+  </div>
+</div>
+
+<script>
+  function calculateARR() {
+    const monthlyMembers = parseInt(document.getElementById('monthly-members').value) || 0;
+    const monthlyPrice = parseFloat(document.getElementById('monthly-price').value) || 0;
+    const yearlyMembers = parseInt(document.getElementById('yearly-members').value) || 0;
+    const yearlyPrice = parseFloat(document.getElementById('yearly-price').value) || 0;
+
+    const monthlyARR = monthlyMembers * monthlyPrice * 12;
+    const yearlyARR = yearlyMembers * yearlyPrice;
+    
+    const totalARR = monthlyARR + yearlyARR;
+    
+    document.getElementById('result').innerText = `Total Annual Recurring Revenue (ARR): $${totalARR.toFixed(2)}`;
+  }
+</script>

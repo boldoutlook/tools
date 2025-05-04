@@ -1,0 +1,62 @@
+/* Custom Styles */
+body {
+  background-color: #f8f9fa;
+}
+
+/* Navbar with Gradient */
+.navbar {
+  background: linear-gradient(45deg, #0033a1, #23a7e1);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-nav .nav-link {
+  font-weight: 500;
+  color: white;
+  padding: 10px 20px;
+}
+
+.navbar-nav .nav-link:hover {
+  color: #f8f9fa;
+  background-color: rgba(255, 255, 255, 0.2);
+  border-radius: 5px;
+}
+
+/* Tool Cards */
+.tool-card {
+  transition: transform 0.3s ease-in-out;
+  border: 1px solid #ddd; /* Light border color */
+  border-radius: 10px;
+}
+
+.tool-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.tool-card-header {
+  background-color: #000; /* Navy Blue for contrast */
+  color: white;
+  padding: 12px;
+  font-weight: bold;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+.tool-card-body {
+  background-color: #ffffff;
+  padding: 20px;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+
+/* Footer */
+footer {
+  background-color: #343a40;
+  color: white;
+  padding: 30px 0;
+  text-align: center;
+}
+
+footer a {
+  color: white;
+}

@@ -1,0 +1,39 @@
+---
+layout: default
+title: "Temperature Converter"
+permalink: /temperature/
+---
+
+<div class="container tool-container">
+  <h1>Temperature Converter</h1>
+  <p>Enter a temperature:</p>
+
+  <div class="input-group flex-nowrap mb-3">
+    <input type="text" id="temp" class="form-control" placeholder="Enter temperature"/>
+    <select id="unit" class="form-select">
+      <option value="celsius">Celsius</option>
+      <option value="fahrenheit">Fahrenheit</option>
+    </select>
+    <button onclick="convertTemp()" class="btn btn-primary">Convert</button>
+  </div>
+
+  <p id="result"></p>
+</div>
+
+<script>
+  function convertTemp() {
+    const tempValue = parseFloat(document.getElementById("temp").value);
+    const unit = document.getElementById("unit").value;
+    let result;
+
+    if (unit === "celsius") {
+      // Convert Celsius to Fahrenheit
+      result = (tempValue * 9/5) + 32;
+      document.getElementById("result").innerText = `${tempValue}°C is equal to ${result.toFixed(2)}°F`;
+    } else if (unit === "fahrenheit") {
+      // Convert Fahrenheit to Celsius
+      result = (tempValue - 32) * 5/9;
+      document.getElementById("result").innerText = `${tempValue}°F is equal to ${result.toFixed(2)}°C`;
+    }
+  }
+</script>

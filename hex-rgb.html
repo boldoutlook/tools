@@ -1,0 +1,51 @@
+---
+layout: default
+title: "Hex-RGB Converter"
+permalink: /hex-rgb/
+---
+
+<div class="container tool-container">
+  <h1>Hex-RGB Converter</h1>
+  <p>Enter a Hex or RGB color value below:</p>
+
+  <div class="input-group flex-nowrap mb-3">
+    <input type="text" id="colorInput" class="form-control" placeholder="Enter Hex or RGB value">
+    <br>
+    <button onclick="convert()" class="btn btn-primary">Convert</button>
+  </div>
+
+  <div class="result">
+    <p id="rgbResult"></p>
+    <p id="hexResult"></p>
+  </div>
+</div>
+
+<script>
+  function convert() {
+    const colorInput = document.getElementById("colorInput").value.trim();
+    let rgbResult, hexResult;
+
+    if (/^#[0-9A-F]{6}$/i.test(colorInput)) {
+      // Hex to RGB
+      rgbResult = hexToRgb(colorInput);
+      document.getElementById("rgbResult").innerText = `RGB: ${rgbResult}`;
+    } else if (/^rgb\(\d{1,3}, \d{1,3}, \d{1,3}\)$/.test(colorInput)) {
+      // RGB to Hex
+      hexResult = rgbToHex(colorInput);
+      document.getElementById("hexResult").innerText = `Hex: ${hexResult}`;
+    } else {
+      document.getElementById("rgbResult").innerText = "Invalid Input. Please enter a valid Hex or RGB color.";
+      document.getElementById("hexResult").innerText = "";
+    }
+  }
+
+  function hexToRgb(hex) {
+    const result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
+    return result ? `rgb(${parseInt(result[1], 16)}, ${parseInt(result[2], 16)}, ${parseInt(result[3], 16)})` : null;
+  }
+
+  function rgbToHex(rgb) {
+    const result = /^rgb\((\d{1,3}), (\d{1,3}), (\d{1,3})\)$/.exec(rgb);
+    return result ? `#${parseInt(result[1]).toString(16).padStart(2, '0')}${parseInt(result[2]).toString(16).padStart(2, '0')}${parseInt(result[3]).toString(16).padStart(2, '0')}` : null;
+  }
+</script>

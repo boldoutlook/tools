@@ -1,0 +1,62 @@
+---
+layout: default
+title: "Reaction Time Test"
+permalink: /reaction-time/
+---
+
+<div class="container tool-container">
+  <div class="container text-center mt-5">
+    <h1>Reaction Time Test</h1>
+    <p class="lead">Click as fast as you can when the box changes color.</p>
+    
+    <div id="reaction-box" class="bg-primary rounded" style="height: 200px; width: 200px; margin: 0 auto; cursor: pointer;"></div>
+    
+    <p id="result" class="mt-3"></p>
+    
+    <button id="reset-btn" class="btn btn-secondary mt-3">Reset</button>
+  </div>
+</div>
+
+<script>
+  let reactionTime;
+  let startTime;
+
+  const reactionBox = document.getElementById("reaction-box");
+  const resultText = document.getElementById("result");
+  const resetButton = document.getElementById("reset-btn");
+
+  function getRandomColor() {
+    const letters = '0123456789ABCDEF';
+    let color = '#';
+    for (let i = 0; i < 6; i++) {
+      color += letters[Math.floor(Math.random() * 16)];
+    }
+    return color;
+  }
+
+  function startReactionTest() {
+    reactionBox.style.backgroundColor = getRandomColor();  // Change color
+    reactionBox.style.pointerEvents = "auto";  // Enable clicking
+    startTime = Date.now();  // Start timing
+
+    resultText.innerText = "Click when the box changes color!";
+  }
+
+  function recordReactionTime() {
+    reactionTime = Date.now() - startTime;  // Calculate reaction time
+    resultText.innerText = `Your reaction time is ${reactionTime} milliseconds!`;
+
+    reactionBox.style.pointerEvents = "none";  // Disable further clicks
+  }
+
+  reactionBox.addEventListener("click", recordReactionTime);
+
+  resetButton.addEventListener("click", function() {
+    resultText.innerText = "";
+    reactionBox.style.pointerEvents = "none";  // Disable clicks
+    setTimeout(startReactionTest, Math.random() * (2000 - 1000) + 1000);  // Wait for random time to change color
+  });
+
+  // Start the reaction test when the page loads
+  setTimeout(startReactionTest, Math.random() * (2000 - 1000) + 1000);  // Random time for the first color change
+</script>

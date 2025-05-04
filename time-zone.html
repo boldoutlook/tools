@@ -1,0 +1,77 @@
+---
+layout: default
+title: Time Zone Converter
+---
+
+<section class="container py-8">
+  <h1 class="text-3xl font-bold text-center text-primary">Time Zone Converter</h1>
+  <p class="text-muted text-center mt-4">Easily convert time zones to stay on schedule, no matter where your travels take you.</p>
+
+  <div class="bg-white shadow-sm rounded p-6 mt-8 max-w-md mx-auto">
+    <form id="time-zone-form">
+      <div class="mb-4">
+        <label for="from-time" class="form-label">Your Local Time:</label>
+        <input type="time" id="from-time" name="from-time" class="form-control">
+      </div>
+
+      <div class="mb-4">
+        <label for="from-zone" class="form-label">Your Time Zone:</label>
+        <select id="from-zone" name="from-zone" class="form-select">
+          {% for tz in site.data.timezones %}
+            <option value="{{ tz.identifier }}">{{ tz.name }}</option>
+          {% endfor %}
+        </select>
+      </div>
+
+      <div class="mb-4">
+        <label for="to-zone" class="form-label">Convert To:</label>
+        <select id="to-zone" name="to-zone" class="form-select">
+          {% for tz in site.data.timezones %}
+            <option value="{{ tz.identifier }}">{{ tz.name }}</option>
+          {% endfor %}
+        </select>
+      </div>
+
+      <div class="text-center">
+        <button type="button" onclick="convertTime()" class="btn btn-primary">Convert</button>
+      </div>
+    </form>
+
+    <div id="result" class="mt-6 text-center text-lg font-medium text-dark"></div>
+  </div>
+</section>
+
+<script>
+  function convertTime() {
+    const fromTime = document.getElementById('from-time').value;
+    const fromZone = document.getElementById('from-zone').value;
+    const toZone = document.getElementById('to-zone').value;
+
+    if (!fromTime) {
+      document.getElementById('result').innerText = 'Please enter a valid time.';
+      return;
+    }
+
+    // Parse input time
+    const [hours, minutes] = fromTime.split(':').map(Number);
+    const date = new Date();
+    date.setHours(hours, minutes, 0);
+
+    try {
+      // Convert from fromZone to UTC
+      const utcTime = new Date(date.toLocaleString('en-US', { timeZone: fromZone }));
+
+      // Convert UTC to toZone
+      const convertedTime = utcTime.toLocaleString('en-US', {
+        timeZone: toZone,
+        hour: '2-digit',
+        minute: '2-digit',
+        hour12: false,
+      });
+
+      document.getElementById('result').innerText = `Converted Time: ${convertedTime}`;
+    } catch (error) {
+      document.getElementById('result').innerText = 'An error occurred. Please check your inputs.';
+    }
+  }
+</script>
