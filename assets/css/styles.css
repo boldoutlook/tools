@@ -5,8 +5,9 @@ body {
 
 /* Navbar with Gradient */
 .navbar {
-  background: linear-gradient(45deg, #0033a1, #23a7e1);
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  background: linear-gradient(135deg, #0f172a 0%, #0b1f3a 40%, #1e3a8a 100%);
+  background-size: cover;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
 }
 
 .navbar-nav .nav-link {
